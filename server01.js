@@ -49,7 +49,7 @@ app.post("/handleForm", function (req, res) {
     // console.log(first1)
     // console.log(second1)
     var data = []
-    res.header("content-type", "application/json")
+
 
     switch (math) {
         case "Suma":
@@ -65,10 +65,7 @@ app.post("/handleForm", function (req, res) {
             data[0] = { message: req.body.whatmath + " dwu liczb", wynik: finald }
             break
         case "All":
-            // console.log(finals)
-            // console.log(finalr)
-            // console.log(finalm)
-            // console.log(finald)
+            data[1] = { message: req.body.whatmath + " dwu liczb", wynik: finals }, { message: req.body.whatmath + " dwu liczb", wynik: finalr }, { message: req.body.whatmath + " dwu liczb", wynik: finalm }, { message: req.body.whatmath + " dwu liczb", wynik: finald }
             break;
     }
     // res.send(JSON.stringify("wynik:" + finals))
@@ -78,10 +75,10 @@ app.post("/handleForm", function (req, res) {
     // // res.send("wynik:" + finald)
 
     // // res.header("content-type", "application/json")
+    res.header("content-type", "application/json")
 
     // app.use(bodyParser.json())
-    res.send(data[0])
-
+    res.send(data[1])
     JSON.stringify(data, null, 5)
 
 })
